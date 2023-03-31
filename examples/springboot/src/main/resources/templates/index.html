@@ -190,10 +190,20 @@
                             <a href="/allbooks" class="path-link">List all my books</a>
                         </li>
                         <li class="provided-code">
-                            <a href="/booksbyauthor" class="path-link">Get books by 'Bram Stoker'</a>
+                            <form th:action="@{/booksbyauthor}" method="get">
+                                <p>Search books by author:<br>
+                                    <input class="resource-input" type="text" name="author" th:value="${author} ? ${author} : ''"/>
+                                </p>
+                                <p><input type="submit" value="Go" /></p>
+                            </form>
                         </li>
                         <li class="provided-code">
-                            <a href="/booksbytitle" class="path-link">Get books which contains 'Women' in the title</a>
+                            <form th:action="@{/booksbytitle}" method="get">
+                                <p>Search books by title:<br>
+                                    <input class="resource-input" type="text" name="title" th:value="${title} ? ${title} : ''"/>
+                                </p>
+                                <p><input type="submit" value="Go" /></p>
+                            </form>
                         </li>
                         <li th:if="${userName}" class="provided-code">
                             <a href="/logout" class="path-link">Logout</a>
